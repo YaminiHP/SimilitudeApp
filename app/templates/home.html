@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> HTML form with textarea</title>
+    <style>
+        body{
+            background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Free-Back-to-School-Picture.jpg");
+            background-size: cover;
+            background-blend-mode:darken;
+            margin:0;
+            padding:0;
+            height:100%;
+            width:100%;
+            background-: repeat no-repeat;
+            background-position:center center;
+        }
+        form {
+            width: 700px;
+            padding: 40px;
+            margin: auto;
+            font-size: 20px;
+            font-family: 'Londrina Solid', cursive;
+        }
+
+        input[type=text] {
+            background: #ffffff;
+            width: 100%;
+            padding: 5px;
+            font-size: 17px
+        }
+
+        input[type=submit] {
+                color: #ffffff;
+                background: #666464;
+                padding:5px;
+                font-size:18px;
+            }
+
+            textarea {
+                color:black;
+                background:#ffffff;
+                width:60px;
+                font-size:20px;
+                margin:auto;
+            }
+    </style>
+</head>
+
+<body>
+    <form class="form-wrapper" action="{{ url_for('predict') }}" method="post">
+        <br>
+        <font color='black'>
+        <div><h1 style="text-align:center;"><font color='purple'>SIMILItude</font></h1></div><link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <h3>
+        Q1.Write the names of 3 outdoor games
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname1" name="answer1" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname1" name="actual1" placeholder="Enter your Expected Answer" required="required"><br>
+
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text1 }}
+        </text>
+            <br><br>
+
+        Q2.Name 2 community workers
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname2" name="answer2" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname2" name="actual2" placeholder="Enter your Expected Answer" required="required"><br>
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text2 }}
+        </text>
+            <br><br>
+        Q3.Where do Cactus plants grow ?
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname3" name="answer3" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname3" name="actual3" placeholder="Enter your Expected Answer" required="required"><br>
+            Score :
+        <text name="message" color='black'>
+		{{ prediction_text3 }}
+        </text>
+            <br><br>
+
+        Q4.What do plants need to live?
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname4" name="answer4" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname4" name="actual4" placeholder="Enter your Expected Answer" required="required"><br>
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text4 }}
+        </text>
+            <br><br>
+        Q5.Name 2 animals that live on trees
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname5" name="answer5" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname5" name="actual5" placeholder="Enter your Expected Answer" required="required"><br>
+            Score :
+        <text name="message" color='black'>
+		{{ prediction_text5 }}
+        </text>
+            <br><br>
+        Q6.What do plants give us ?
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname6" name="answer6" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname6" name="actual6" placeholder="Enter your Expected Answer" required="required"><br>
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text6 }}
+        </text>
+            <br><br>
+        Q7.How are Climbers different from Creepers?
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname7" name="answer7" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname7" name="actual7" placeholder="Enter your Expected Answer" required="required"><br>
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text7 }}
+        </text>
+            <br><br>
+        Q8.Waterbodies are the habitat of which type of animals ?
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname8" name="answer8" placeholder="Paste student Answer here" required="required" ><br>
+        <br/>
+        Expected Answer:<br>
+        <input type="text" id="lastname8" name="actual8" placeholder="Enter your Expected Answer" required="required"><br>
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text8 }}
+        </text>
+            <br><br>
+        Q9.Name 2 medicinal plants
+        <br/>
+        Student's Answer:<br/>
+        <input type="text" id="firstname9" name="answer9" placeholder="Paste student Answer here" required="required" ><br>
+        <br>
+        Expected Answer:<br>
+        <input type="text" id="lastname9" name="actual9" placeholder="Enter your Expected Answer" required="required"><br>
+        Score :
+        <text name="message" color='black'>
+		{{ prediction_text9 }}
+        </text>
+            <br><br>
+
+
+
+
+
+
+
+        <button class="btn" type="submit" name="submit"> Submit </button>
+
+
+        <br><br>
+         Avg Similarity Score(1-10) :
+        <text name="message" color='black'>
+		{{ avg_prediction_text }}
+
+        </text>
+        </h3>
+        </font>
+        <br>
+        </form>
+    </form>
+</body>
+
+</html>
